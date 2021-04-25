@@ -31,7 +31,9 @@ if analysis == "Ibex35":
     tickerDf = tickerData.history(period='1d', start=start_date, end=end_date)
     string_logo = '<img src=%s>' % tickerData.info['logo_url']
     st.markdown(string_logo, unsafe_allow_html=True)
-    st.write(tickerData)
+
+    st.header('**Representación sencilla del valor seleccionado**')
+    st.line_chart(tickerDF)
 
 
     st.header('**Tabla/DF del valor seleccionado**')
