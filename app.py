@@ -62,7 +62,7 @@ elif analysis == "SP500":
     st.header('Selecciona valor')
 
     ticker_list2=pd.read_csv('iniciales.txt')
-    tickerSymbol2=st.sidebar('Código bursátil', ticker_list2)
+    tickerSymbol2=st.selectbox('Código bursátil', ticker_list2)
     tickerData2=yf.Ticker(tickerSymbol2)
     #La fecha a seleccionar podemos ponerla en body o en la sidebar añadiendo stt.sidebar
     start_date2=st.date_input("Fecha inicial", datetime.date(2021, 1, 1))
