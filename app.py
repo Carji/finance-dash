@@ -22,7 +22,7 @@ if analysis == "Ibex35":
     # Date picker
     st.header('Selecciona valor')
 
-    ticker_list=pd.read_csv('iniciales.txt')
+    ticker_list=pd.read_csv('ibex.txt')
     tickerSymbol=st.selectbox('Código bursátil', ticker_list)
     tickerData=yf.Ticker(tickerSymbol)
     #La fecha a seleccionar podemos ponerla en body o en la sidebar añadiendo stt.sidebar
@@ -61,24 +61,24 @@ elif analysis == "SP500":
     # Date picker
     st.header('Selecciona valor')
 
-    ticker_list=pd.read_csv('iniciales.txt')
-    tickerSymbol=st.sidebar('Código bursátil', ticker_list)
-    tickerData=yf.Ticker(tickerSymbol)
+    ticker_list2=pd.read_csv('iniciales.txt')
+    tickerSymbol2=st.sidebar('Código bursátil', ticker_list2)
+    tickerData2=yf.Ticker(tickerSymbol2)
     #La fecha a seleccionar podemos ponerla en body o en la sidebar añadiendo stt.sidebar
-    start_date=st.date_input("Fecha inicial", datetime.date(2021, 1, 1))
-    end_date=st.date_input("Fecha final", datetime.date(2021, 3, 15))
-    tickerDf = tickerData.history(period='1d', start=start_date, end=end_date)
-    string_logo = '<img src=%s>' % tickerData.info['logo_url']
-    st.markdown(string_logo, unsafe_allow_html=True)
+    start_date2=st.date_input("Fecha inicial", datetime.date(2021, 1, 1))
+    end_date2=st.date_input("Fecha final", datetime.date(2021, 3, 15))
+    tickerDf2 = tickerData2.history(period='1d', start=start_date2, end=end_date2)
+    string_logo2 = '<img src=%s>' % tickerData2.info['logo_url']
+    st.markdown(string_logo2, unsafe_allow_html=True)
 
 
 
     st.header('**Tabla/DF del valor seleccionado**')
-    st.write(tickerDf)
+    st.write(tickerDf2)
 
     #Bollinger bands
     st.header('**Bandas de Bollinger**')
-    qf=cf.QuantFig(tickerDf,title='First Quant Figure',legend='top',name='GS')
+    qf=cf.QuantFig(tickerDf2,title='First Quant Figure',legend='top',name='GS')
     qf.add_sma([10,20],width=2,color=['green','lightgreen'],legendgroup=True)
     qf.add_rsi(periods=20,color='java')
     qf.add_bollinger_bands(periods=20,boll_std=2,colors=['magenta','grey'],fill=True)
