@@ -35,7 +35,7 @@ if analysis == "Ibex35":
     st.header('**Representación sencilla del valor seleccionado**')
     tickercopyDf=tickerDf
     tickercopyDf=tickercopyDf.drop(['Volume', 'Dividends','Stock Splits'], axis=1)
-    st.bar_chart(tickercopyDf)
+    st.bar_chart(tickercopyDf,use_container_width=True)
 
 
     st.header('**Tabla/DF del valor seleccionado**')
