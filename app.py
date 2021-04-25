@@ -33,7 +33,7 @@ if analysis == "Ibex35":
     st.markdown(string_logo, unsafe_allow_html=True)
 
     st.header('**Representación sencilla del valor seleccionado**')
-    st.line_chart(tickerDf)
+    st.line_chart(tickerDf["Open","High","Low","Close"])
 
 
     st.header('**Tabla/DF del valor seleccionado**')
