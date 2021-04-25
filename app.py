@@ -22,7 +22,7 @@ if analysis == "Ibex35":
     # Date picker
     st.header('Selecciona valor')
 
-    ticker_list=pd.read_csv('ibex.txt')
+    ticker_list=pd.read_csv('ibex35.txt')
     tickerSymbol=st.selectbox('Código bursátil', ticker_list)
     tickerData=yf.Ticker(tickerSymbol)
     #La fecha a seleccionar podemos ponerla en body o en la sidebar añadiendo stt.sidebar
@@ -61,7 +61,7 @@ elif analysis == "SP500":
     # Date picker
     st.header('Selecciona valor')
 
-    ticker_list2=pd.read_csv('iniciales.txt')
+    ticker_list2=pd.read_csv('sp500.txt')
     tickerSymbol2=st.selectbox('Código bursátil', ticker_list2)
     tickerData2=yf.Ticker(tickerSymbol2)
     #La fecha a seleccionar podemos ponerla en body o en la sidebar añadiendo stt.sidebar
