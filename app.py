@@ -119,7 +119,7 @@ elif analysis == "CryptoUSD":
 
     st.header('**Representación sencilla del valor seleccionado**')
     tickercopyDf3=tickerDf3
-    tickercopyDf3=tickercopyDf3.drop(['Volume', 'Dividends','Stock Splits'], axis=1)
+    tickercopyDf3=tickercopyDf3.drop(['Volume', 'High','Low'], axis=1)
     st.line_chart(tickercopyDf3,use_container_width=True)
 
     st.header('**Tabla/DF del valor seleccionado**')
