@@ -75,7 +75,10 @@ elif analysis == "SP500":
     string_logo2 = '<img src=%s>' % tickerData2.info['logo_url']
     st.markdown(string_logo2, unsafe_allow_html=True)
 
-
+    st.header('**Representación sencilla del valor seleccionado**')
+    tickercopyDf=tickerDf
+    tickercopyDf=tickercopyDf.drop(['Volume', 'Dividends','Stock Splits'], axis=1)
+    st.line_chart(tickercopyDf,use_container_width=True)
 
     st.header('**Tabla/DF del valor seleccionado**')
     st.write(tickerDf2)
@@ -114,18 +117,12 @@ elif analysis == "CryptoUSD":
     string_logo2 = '<img src=%s>' % tickerData2.info['logo_url']
     st.markdown(string_logo2, unsafe_allow_html=True)
 
-
+    st.header('**Representación sencilla del valor seleccionado**')
+    tickercopyDf=tickerDf
+    tickercopyDf=tickercopyDf.drop(['Volume', 'Dividends','Stock Splits'], axis=1)
+    st.line_chart(tickercopyDf,use_container_width=True)
 
     st.header('**Tabla/DF del valor seleccionado**')
     st.write(tickerDf2)
 
-    #Bollinger bands
-    st.header('**Bandas de Bollinger**')
-    qf=cf.QuantFig(tickerDf2,title='First Quant Figure',legend='top',name='GS')
-    qf.add_sma([10,20],width=2,color=['green','lightgreen'],legendgroup=True)
-    qf.add_rsi(periods=20,color='java')
-    qf.add_bollinger_bands(periods=20,boll_std=2,colors=['magenta','grey'],fill=True)
-    qf.add_volume()
-    qf.add_macd()
-    fig = qf.iplot(asFigure=True)
-    st.plotly_chart(fig)
+
