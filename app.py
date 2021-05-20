@@ -7,7 +7,7 @@ import cufflinks as cf
 import datetime
 
 
-analysis = st.sidebar.selectbox("Desplegable", ["Ibex35","SP500"])
+analysis = st.sidebar.selectbox("Desplegable", ["Ibex35","SP500","CryptoUSD"])
 
 if analysis == "Ibex35":
 
@@ -52,7 +52,7 @@ if analysis == "Ibex35":
     fig = qf.iplot(asFigure=True)
     st.plotly_chart(fig)
 
-elif analysis == "SP500":
+elif analysis == "CryptoUSD":
 
 
     st.write('---')
@@ -67,6 +67,45 @@ elif analysis == "SP500":
 
     ticker_list2=pd.read_csv('sp500.txt')
     tickerSymbol2=st.selectbox('Código bursátil', ticker_list2)
+    tickerData2=yf.Ticker(tickerSymbol2)
+    #La fecha a seleccionar podemos ponerla en body o en la sidebar añadiendo stt.sidebar
+    start_date2=st.date_input("Fecha inicial", datetime.date(2021, 1, 1))
+    end_date2=st.date_input("Fecha final", datetime.date(2021, 3, 15))
+    tickerDf2 = tickerData2.history(period='1d', start=start_date2, end=end_date2)
+    string_logo2 = '<img src=%s>' % tickerData2.info['logo_url']
+    st.markdown(string_logo2, unsafe_allow_html=True)
+
+
+
+    st.header('**Tabla/DF del valor seleccionado**')
+    st.write(tickerDf2)
+
+    #Bollinger bands
+    st.header('**Bandas de Bollinger**')
+    qf=cf.QuantFig(tickerDf2,title='First Quant Figure',legend='top',name='GS')
+    qf.add_sma([10,20],width=2,color=['green','lightgreen'],legendgroup=True)
+    qf.add_rsi(periods=20,color='java')
+    qf.add_bollinger_bands(periods=20,boll_std=2,colors=['magenta','grey'],fill=True)
+    qf.add_volume()
+    qf.add_macd()
+    fig = qf.iplot(asFigure=True)
+    st.plotly_chart(fig)
+    
+    elif analysis == "SP500":
+
+
+    st.write('---')
+    #Section title
+    st.markdown('''
+    # Valor en USD de diversas cryptomonedas
+    ''')
+    st.write('---')
+
+    # Date picker
+    st.header('Selecciona valor')
+
+    ticker_list2=pd.read_csv('crypto.txt')
+    tickerSymbol2=st.selectbox('Denominación de la cryptomoneda', ticker_list2)
     tickerData2=yf.Ticker(tickerSymbol2)
     #La fecha a seleccionar podemos ponerla en body o en la sidebar añadiendo stt.sidebar
     start_date2=st.date_input("Fecha inicial", datetime.date(2021, 1, 1))
