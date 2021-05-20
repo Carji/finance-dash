@@ -52,8 +52,8 @@ if analysis == "Ibex35":
     fig = qf.iplot(asFigure=True)
     st.plotly_chart(fig)
 
-elif analysis == "CryptoUSD":
 
+elif analysis == "SP500":
 
     st.write('---')
     #Section title
@@ -91,7 +91,7 @@ elif analysis == "CryptoUSD":
     fig = qf.iplot(asFigure=True)
     st.plotly_chart(fig)
     
-    elif analysis == "SP500":
+elif analysis == "CryptoUSD":
 
 
     st.write('---')
