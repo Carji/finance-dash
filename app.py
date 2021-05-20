@@ -111,8 +111,8 @@ elif analysis == "CryptoUSD":
     tickerSymbol3=st.selectbox('Denominación de la cryptomoneda', ticker_list3)
     tickerData3=yf.Ticker(tickerSymbol3)
     #La fecha a seleccionar podemos ponerla en body o en la sidebar añadiendo stt.sidebar
-    start_date3=st.date_input("Fecha inicial", datetime3.date(2021, 1, 1))
-    end_date3=st.date_input("Fecha final", datetime3.date(2021, 3, 15))
+    start_date3=st.date_input("Fecha inicial", datetime.date(2021, 1, 1))
+    end_date3=st.date_input("Fecha final", datetime.date(2021, 3, 15))
     tickerDf3 = tickerData3.history(period='1d', start=start_date3, end=end_date3)
     string_logo3 = '<img src=%s>' % tickerData3.info['logo_url']
     st.markdown(string_logo3, unsafe_allow_html=True)
