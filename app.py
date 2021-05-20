@@ -108,7 +108,7 @@ elif analysis == "CryptoUSD":
     st.header('Selecciona valor')
 
     ticker_list3=pd.read_csv('crypto.txt')
-    tickerSymbol32=st.selectbox('Denominación de la cryptomoneda', ticker_list3)
+    tickerSymbol3=st.selectbox('Denominación de la cryptomoneda', ticker_list3)
     tickerData3=yf.Ticker(tickerSymbol3)
     #La fecha a seleccionar podemos ponerla en body o en la sidebar añadiendo stt.sidebar
     start_date3=st.date_input("Fecha inicial", datetime3.date(2021, 1, 1))
