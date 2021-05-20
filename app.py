@@ -108,21 +108,21 @@ elif analysis == "CryptoUSD":
     st.header('Selecciona valor')
 
     ticker_list3=pd.read_csv('crypto.txt')
-    tickerSymbol3=st.selectbox('Denominación de la cryptomoneda', ticker_list3)
-    tickerData3=yf.Ticker(tickerSymbol3)
+#    tickerSymbol3=st.selectbox('Denominación de la cryptomoneda', ticker_list3)
+#    tickerData3=yf.Ticker(tickerSymbol3)
     #La fecha a seleccionar podemos ponerla en body o en la sidebar añadiendo stt.sidebar
-    start_date3=st.date_input("Fecha inicial", datetime.date(2021, 1, 1))
-    end_date3=st.date_input("Fecha final", datetime.date(2021, 3, 15))
-    tickerDf3 = tickerData3.history(period='1d', start=start_date3, end=end_date3)
-    string_logo3 = '<img src=%s>' % tickerData3.info['logo_url']
-    st.markdown(string_logo3, unsafe_allow_html=True)
+#    start_date3=st.date_input("Fecha inicial", datetime.date(2021, 1, 1))
+#    end_date3=st.date_input("Fecha final", datetime.date(2021, 3, 15))
+#    tickerDf3 = tickerData3.history(period='1d', start=start_date3, end=end_date3)
+#    string_logo3 = '<img src=%s>' % tickerData3.info['logo_url']
+#    st.markdown(string_logo3, unsafe_allow_html=True)
+#
+#    st.header('**Representación sencilla del valor seleccionado**')
+#    tickercopyDf3=tickerDf3
+#    tickercopyDf3=tickercopyDf3.drop(['Volume', 'High','Low'], axis=1)
+#    st.line_chart(tickercopyDf3,use_container_width=True)
 
-    st.header('**Representación sencilla del valor seleccionado**')
-    tickercopyDf3=tickerDf3
-    tickercopyDf3=tickercopyDf3.drop(['Volume', 'High','Low'], axis=1)
-    st.line_chart(tickercopyDf3,use_container_width=True)
-
-    st.header('**Tabla/DF del valor seleccionado**')
-    st.write(tickerDf3)
+#    st.header('**Tabla/DF del valor seleccionado**')
+#    st.write(tickerDf3)
 
 
