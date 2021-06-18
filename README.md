@@ -4,4 +4,4 @@ Permite seleccionar índice y rango de fechas a representar.
 
 ~~Pendiente: Incluir desplegable para IBEX35~~ Hecho en 25-Abril-2021
 
-Pendiente: Añadir desplegable para cryptodivisas.
+Pendiente: ~~Añadir desplegable para cryptodivisas.~~ Hecho el 18-Junio-2021. Revisar la API, da error en remoto.
