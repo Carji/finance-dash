@@ -26,8 +26,8 @@ if analysis == "Ibex35":
     tickerSymbol=st.selectbox('Código bursátil', ticker_list)
     tickerData=yf.Ticker(tickerSymbol)
     #La fecha a seleccionar podemos ponerla en body o en la sidebar añadiendo stt.sidebar
-    start_date=st.date_input("Fecha inicial", datetime.date(2021, 1, 1))
-    end_date=st.date_input("Fecha final", datetime.date(2021, 3, 15))
+    start_date=st.date_input("Fecha inicial", datetime.date(2020, 1, 1))
+    end_date=st.date_input("Fecha final", datetime.date(2021, 7, 13))
     tickerDf = tickerData.history(period='1d', start=start_date, end=end_date)
     string_logo = '<img src=%s>' % tickerData.info['logo_url']
     st.markdown(string_logo, unsafe_allow_html=True)
@@ -69,8 +69,8 @@ elif analysis == "SP500":
     tickerSymbol2=st.selectbox('Código bursátil', ticker_list2)
     tickerData2=yf.Ticker(tickerSymbol2)
     #La fecha a seleccionar podemos ponerla en body o en la sidebar añadiendo stt.sidebar
-    start_date2=st.date_input("Fecha inicial", datetime.date(2021, 1, 1))
-    end_date2=st.date_input("Fecha final", datetime.date(2021, 3, 15))
+    start_date2=st.date_input("Fecha inicial", datetime.date(2020, 1, 1))
+    end_date2=st.date_input("Fecha final", datetime.date(2021, 7, 13))
     tickerDf2 = tickerData2.history(period='1d', start=start_date2, end=end_date2)
     string_logo2 = '<img src=%s>' % tickerData2.info['logo_url']
     st.markdown(string_logo2, unsafe_allow_html=True)
@@ -111,8 +111,8 @@ elif analysis == "CryptoUSD":
     tickerSymbol3=st.selectbox('Denominación de la cryptomoneda', ticker_list3)
     tickerData3=yf.Ticker(tickerSymbol3)
     #La fecha a seleccionar podemos ponerla en body o en la sidebar añadiendo stt.sidebar
-    start_date3=st.date_input("Fecha inicial", datetime.date(2021, 1, 1))
-    end_date3=st.date_input("Fecha final", datetime.date(2021, 3, 15))
+    start_date3=st.date_input("Fecha inicial", datetime.date(2020, 1, 1))
+    end_date3=st.date_input("Fecha final", datetime.date(2021, 7, 13))
     tickerDf3 = tickerData3.history(period='1d', start=start_date3, end=end_date3)
     string_logo3 = '<img src=%s>' % tickerData3.info['logo_url']
     st.markdown(string_logo3, unsafe_allow_html=True)
